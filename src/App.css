@@ -42,3 +42,15 @@
     transform: translateX(0);
   }
 }
+
+.legend {
+  font-size: 2.5vh;
+}
+.higest-population:before {
+  content: ".";
+  background-color: black;
+  color: black;
+  width: 3vh;
+  display: inline-block;
+  margin: 0 0.5vh 0 0.5vh;
+}
