@@ -15,3 +15,13 @@ export const TableTask1 = styled.div`
   margin-top: 3vh;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
 `;
+
+export const TableColumn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+`;

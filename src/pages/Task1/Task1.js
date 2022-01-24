@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as S from "./style";
 
 export default (props) => {
-  const [maxVehicle, setMaxVehicle] = useState();
+  const [maxVehicle, setMaxVehicle] = useState({});
   if (!props.isLoading) console.log(maxVehicle);
   const calcMostPopulation = (vehicles) => {
     let maxVehicle = {};
@@ -23,6 +23,38 @@ export default (props) => {
   useEffect(() => {
     if (props.vehicles) calcMostPopulation(props.vehicles);
   }, [props.vehicles]);
-
-  return <S.TableTask1>Task1</S.TableTask1>;
+  console.log(maxVehicle);
+  return (
+    <>
+      {props.isLoading && <p>loading...</p>}
+      {maxVehicle && (
+        <S.TableTask1>
+          <S.TableColumn> Vehicle - {maxVehicle.vehicle}</S.TableColumn>
+          <S.TableColumn>
+            Planet name -
+            {maxVehicle.pilots &&
+              maxVehicle.pilots.map((pilot, index) => {
+                return (
+                  <p>
+                    {index > 0 ? ", " : ""} {pilot.planet.name}, population -
+                    {pilot.planet.population}
+                  </p>
+                );
+              })}
+          </S.TableColumn>
+          <S.TableColumn>
+            Pilot names -
+            {maxVehicle.pilots &&
+              maxVehicle.pilots.map((pilot, index) => {
+                return (
+                  <p>
+                    {index > 0 ? ", " : ""} {pilot.name}
+                  </p>
+                );
+              })}
+          </S.TableColumn>
+        </S.TableTask1>
+      )}
+    </>
+  );
 };
