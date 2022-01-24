@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useFetchVehicles } from "./useFetchVehicles";
 
-export const useFecthPilotsAnfPlanets = () => {
+export const useFecthPilotsAndPlanets = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [vehicles, setVehicles] = useState([]);
   const vehiclesList = useFetchVehicles();

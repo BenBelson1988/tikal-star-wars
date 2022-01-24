@@ -5,7 +5,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import {
-  useFecthPilotsAnfPlanets,
+  useFecthPilotsAndPlanets,
   FetchPilots,
 } from "../hooks/useFecthPilotsAnfPlanets";
 import Task2 from "../pages/Task2/Task2";
@@ -13,7 +13,7 @@ import Task1 from "../pages/Task1/Task1";
 import { useEffect } from "react";
 
 export default () => {
-  const { isLoading, vehicles } = useFecthPilotsAnfPlanets();
+  const { isLoading, vehicles } = useFecthPilotsAndPlanets();
   return (
     <Switch>
       <Route exact path="/">
