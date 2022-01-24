@@ -4,10 +4,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import {
-  useFecthPilotsAndPlanets,
-  FetchPilots,
-} from "../hooks/useFecthPilotsAnfPlanets";
+import { useFecthPilotsAndPlanets } from "../hooks/useFecthPilotsAndPlanets";
 import Task2 from "../pages/Task2/Task2";
 import Task1 from "../pages/Task1/Task1";
 import { useEffect } from "react";
