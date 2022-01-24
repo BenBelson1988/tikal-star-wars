@@ -29,13 +29,16 @@ export default (props) => {
       {props.isLoading && <p>loading...</p>}
       {maxVehicle && (
         <S.TableTask1>
-          <S.TableColumn> Vehicle - {maxVehicle.vehicle}</S.TableColumn>
           <S.TableColumn>
-            Planet name -
+            {" "}
+            Vehicle name with the largest sum - {maxVehicle.vehicle}
+          </S.TableColumn>
+          <S.TableColumn>
+            Related home planets and their respective -
             {maxVehicle.pilots &&
               maxVehicle.pilots.map((pilot, index) => {
                 return (
-                  <p>
+                  <p key={index}>
                     {index > 0 ? ", " : ""} {pilot.planet.name}, population -
                     {pilot.planet.population}
                   </p>
@@ -43,11 +46,11 @@ export default (props) => {
               })}
           </S.TableColumn>
           <S.TableColumn>
-            Pilot names -
+            Related pilot names -
             {maxVehicle.pilots &&
               maxVehicle.pilots.map((pilot, index) => {
                 return (
-                  <p>
+                  <p key={index}>
                     {index > 0 ? ", " : ""} {pilot.name}
                   </p>
                 );
