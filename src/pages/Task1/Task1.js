@@ -3,7 +3,6 @@ import * as S from "./style";
 
 export default (props) => {
   const [maxVehicle, setMaxVehicle] = useState({});
-  if (!props.isLoading) console.log(maxVehicle);
   const calcMostPopulation = (vehicles) => {
     let maxVehicle = {};
     vehicles.forEach((vehicle) => {
@@ -23,7 +22,7 @@ export default (props) => {
   useEffect(() => {
     if (props.vehicles) calcMostPopulation(props.vehicles);
   }, [props.vehicles]);
-  console.log(maxVehicle);
+  console.log(props.vehicles);
   return (
     <>
       {props.isLoading && <p>loading...</p>}

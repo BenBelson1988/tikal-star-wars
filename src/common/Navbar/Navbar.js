@@ -10,7 +10,6 @@ export default () => {
     1,
     useLocation().pathname.length
   );
-  console.log(currentLocation);
   return (
     <S.Navbar>
       <S.NavbarButton

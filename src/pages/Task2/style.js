@@ -11,7 +11,7 @@ export const ChartWrapper = styled.div`
     rgba(250, 162, 75, 1) 0%,
     rgba(253, 107, 57, 1) 100%
   );
-  height: 60vh;
+  height: 30vw;
   margin-top: 3vh;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
 `;

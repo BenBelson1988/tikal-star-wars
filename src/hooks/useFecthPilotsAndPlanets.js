@@ -11,16 +11,21 @@ export const useFecthPilotsAndPlanets = () => {
     if (vehiclesList.length !== 0) FetchPilots(vehiclesList);
   }, [vehiclesList]);
 
+  const FetchPilotsPlanets = async (pilot) => {
+    const pilotResponse = await axios.get(pilot);
+    const pilotResult = pilotResponse.data;
+    const planetResponse = await axios.get(pilotResult.homeworld);
+    const planet = planetResponse.data;
+    return { pilotResult, planet };
+  };
+
   const FetchPilots = async (vehiclesList) => {
-    let tempVehicles = [];
+    var tempVehicles = [];
     vehiclesList.map(async (vehicle) => {
       var vehicleObject = { vehicle: vehicle.name };
       var pilots = [];
       vehicle.pilots.map(async (pilot) => {
-        const pilotResponse = await axios.get(pilot);
-        const pilotResult = pilotResponse.data;
-        const planetResponse = await axios.get(pilotResult.homeworld);
-        const planet = planetResponse.data;
+        const { pilotResult, planet } = await FetchPilotsPlanets(pilot);
         pilots.push({
           name: pilotResult.name,
           planet: {
@@ -34,7 +39,6 @@ export const useFecthPilotsAndPlanets = () => {
     });
     setVehicles(tempVehicles);
     setIsLoading(false);
-    return tempVehicles;
   };
   return { isLoading, vehicles };
 };
