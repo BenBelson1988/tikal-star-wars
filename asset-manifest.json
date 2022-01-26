@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tikal-star-wars/static/css/main.36ba839c.css",
-    "main.js": "/tikal-star-wars/static/js/main.601f30f8.js",
-    "static/js/787.51cfc2a1.chunk.js": "/tikal-star-wars/static/js/787.51cfc2a1.chunk.js",
-    "index.html": "/tikal-star-wars/index.html",
-    "main.36ba839c.css.map": "/tikal-star-wars/static/css/main.36ba839c.css.map",
-    "main.601f30f8.js.map": "/tikal-star-wars/static/js/main.601f30f8.js.map",
-    "787.51cfc2a1.chunk.js.map": "/tikal-star-wars/static/js/787.51cfc2a1.chunk.js.map"
+    "main.css": "/task1/static/css/main.36ba839c.css",
+    "main.js": "/task1/static/js/main.8acfc148.js",
+    "static/js/787.51cfc2a1.chunk.js": "/task1/static/js/787.51cfc2a1.chunk.js",
+    "index.html": "/task1/index.html",
+    "main.36ba839c.css.map": "/task1/static/css/main.36ba839c.css.map",
+    "main.8acfc148.js.map": "/task1/static/js/main.8acfc148.js.map",
+    "787.51cfc2a1.chunk.js.map": "/task1/static/js/787.51cfc2a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.36ba839c.css",
-    "static/js/main.601f30f8.js"
+    "static/js/main.8acfc148.js"
   ]
 }
