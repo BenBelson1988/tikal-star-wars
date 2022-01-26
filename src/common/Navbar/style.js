@@ -16,12 +16,15 @@ export const Navbar = styled.div`
   margin-top: 3vh;
   border-radius: 30px;
   box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 
 export const NavbarButton = styled.div`
-  width: 10vw;
+  width: 12vw;
   height: 5vh;
-  font-size: 2.5vmin;
+  font-size: 4vmin;
   line-height: 5vh;
   border: 2px solid;
   background: white;
