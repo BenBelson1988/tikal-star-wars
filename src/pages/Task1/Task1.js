@@ -3,6 +3,7 @@ import * as S from "./style";
 
 export default (props) => {
   const [maxVehicle, setMaxVehicle] = useState({});
+  const { isLoading, vehicles } = props;
   const calcMostPopulation = (vehicles) => {
     let maxVehicle = {};
     vehicles.forEach((vehicle) => {
@@ -20,16 +21,15 @@ export default (props) => {
     setMaxVehicle(maxVehicle);
   };
   useEffect(() => {
-    if (props.vehicles) calcMostPopulation(props.vehicles);
-  }, [props.vehicles]);
-  console.log(props.vehicles);
+    if (vehicles) calcMostPopulation(vehicles);
+  }, [vehicles]);
+
   return (
     <>
-      {props.isLoading && <p>loading...</p>}
-      {maxVehicle && (
+      {isLoading && <p>loading...</p>}
+      {maxVehicle && !isLoading && (
         <S.TableTask1>
           <S.TableColumn>
-            {" "}
             Vehicle name with the largest sum - {maxVehicle.vehicle}
           </S.TableColumn>
           <S.TableColumn>

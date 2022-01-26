@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 export default (props) => {
-  console.log(props.data);
-  const [planetsData, setplanetsData] = useState(props.data);
+  const data = props.data;
+  const [planetsData, setplanetsData] = useState(data);
   const maxPlanet = 200;
   const chartHeight = maxPlanet + 20;
   const barWidth = 50;
@@ -17,7 +17,7 @@ export default (props) => {
     }, 0);
 
   const [highestPlanet, setHighestPlanet] = useState(
-    calculateHighestPlanet(props.data)
+    calculateHighestPlanet(data)
   );
 
   return (

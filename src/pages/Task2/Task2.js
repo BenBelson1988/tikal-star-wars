@@ -5,7 +5,7 @@ import * as S from "./style";
 export default (props) => {
   const planetsToFind = ["Tatooine", "Alderaan", "Naboo", "Bespin", "Endor"];
   const [planetsFound, setPlanetFound] = useState([]);
-  console.log(planetsFound);
+  const { isLoading, planets } = props;
 
   const FindPlanets = (planetsList) => {
     let tempfoundArr = [];
@@ -21,12 +21,17 @@ export default (props) => {
     setPlanetFound(tempfoundArr);
   };
   useEffect(() => {
-    if (props.planets.length !== 0) FindPlanets(props.planets);
+    if (planets.length !== 0) FindPlanets(planets);
   }, []);
 
   return (
-    <S.ChartWrapper>
-      {planetsFound.length > 0 && <PlanetsChart data={planetsFound} />}
-    </S.ChartWrapper>
+    <>
+      {isLoading && <p>Loading...</p>}
+      {!isLoading && (
+        <S.ChartWrapper>
+          {planetsFound.length > 0 && <PlanetsChart data={planetsFound} />}
+        </S.ChartWrapper>
+      )}
+    </>
   );
 };

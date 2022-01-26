@@ -11,8 +11,8 @@ import Task1 from "../pages/Task1/Task1";
 import { useEffect } from "react";
 
 export default () => {
-  const { isLoading, vehicles } = useFecthPilotsAndPlanets();
-  const planets = useFetchPlanets();
+  const { isLoading1, vehicles } = useFecthPilotsAndPlanets();
+  const { isLoading2, planets } = useFetchPlanets();
   return (
     <Switch>
       <Route exact path="/">
@@ -21,12 +21,12 @@ export default () => {
       <Route
         exact
         path="/task1"
-        component={() => <Task1 isLoading={isLoading} vehicles={vehicles} />}
+        component={() => <Task1 isLoading={isLoading1} vehicles={vehicles} />}
       />
       <Route
         exact
         path="/task2"
-        component={() => <Task2 planets={planets} />}
+        component={() => <Task2 isLoading={isLoading2} planets={planets} />}
       />
     </Switch>
   );

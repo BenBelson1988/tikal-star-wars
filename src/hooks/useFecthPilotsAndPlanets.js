@@ -3,7 +3,7 @@ import axios from "axios";
 import { useFetchVehicles } from "./useFetchVehicles";
 
 export const useFecthPilotsAndPlanets = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading1, setIsLoading] = useState(true);
   const [vehicles, setVehicles] = useState([]);
   const vehiclesList = useFetchVehicles();
 
@@ -21,24 +21,26 @@ export const useFecthPilotsAndPlanets = () => {
 
   const FetchPilots = async (vehiclesList) => {
     var tempVehicles = [];
-    vehiclesList.map(async (vehicle) => {
-      var vehicleObject = { vehicle: vehicle.name };
-      var pilots = [];
-      vehicle.pilots.map(async (pilot) => {
-        const { pilotResult, planet } = await FetchPilotsPlanets(pilot);
-        pilots.push({
-          name: pilotResult.name,
-          planet: {
-            name: planet.name,
-            population: planet.population,
-          },
-        });
-      });
-      vehicleObject = { ...vehicleObject, pilots };
-      tempVehicles.push(vehicleObject);
-    });
+    await Promise.all(
+      vehiclesList.map(async (vehicle) => {
+        var pilots = [];
+        await Promise.all(
+          vehicle.pilots.map(async (pilot) => {
+            const { pilotResult, planet } = await FetchPilotsPlanets(pilot);
+            pilots.push({
+              name: pilotResult.name,
+              planet: {
+                name: planet.name,
+                population: planet.population,
+              },
+            });
+          })
+        );
+        tempVehicles.push({ vehicle: vehicle.name, pilots });
+      })
+    );
     setVehicles(tempVehicles);
     setIsLoading(false);
   };
-  return { isLoading, vehicles };
+  return { isLoading1, vehicles };
 };

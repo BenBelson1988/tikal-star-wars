@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const useFetchPlanets = () => {
   const [planets, setPlanets] = useState([]);
+  const [isLoading2, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchPlanets();
@@ -37,6 +38,7 @@ export const useFetchPlanets = () => {
         planets7
       )
     );
+    setIsLoading(false);
   };
 
   const fetchPlanetByPage = async (page) => {
@@ -46,5 +48,5 @@ export const useFetchPlanets = () => {
     return response.data.results;
   };
 
-  return planets;
+  return { isLoading2, planets };
 };

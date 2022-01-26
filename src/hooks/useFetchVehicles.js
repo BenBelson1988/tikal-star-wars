@@ -23,9 +23,9 @@ export const useFetchVehicles = () => {
       `https://swapi.py4e.com/api/vehicles/?page=${page}`
     );
 
-    let vehiclesWithPilots = response.data.results.filter((vehicles) => {
-      return vehicles.pilots.length !== 0;
-    });
+    let vehiclesWithPilots = response.data.results.filter(
+      (vehicles) => vehicles.pilots.length !== 0
+    );
     return vehiclesWithPilots;
   };
 
