@@ -1,7 +1,7 @@
 {
   "name": "tikal-star-wars-task",
   "version": "0.1.0",
-  "homepage": "https://benbelson1988.github.io/tikal-star-wars/",
+  "homepage": "https://benbelson1988.github.io/task1/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",

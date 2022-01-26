@@ -18,6 +18,9 @@ export default () => {
       <Route exact path="/">
         <Redirect to={"task1"} />
       </Route>
+      {/* <Route exact path="/tikal-star-wars">
+        <Redirect to={"task1"} />
+      </Route> */}
       <Route
         exact
         path="/task1"
