@@ -1,6 +1,6 @@
 import logo from "./pics/TikalLogo.png";
 import "./App.css";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import Navbar from "./common/Navbar/Navbar";
 import MainRoute from "./Router/MainRoute";
 
