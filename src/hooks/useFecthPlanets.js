@@ -2,51 +2,30 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export const useFetchPlanets = () => {
+  const planetsToFind = ["Tatooine", "Alderaan", "Naboo", "Bespin", "Endor"];
   const [planets, setPlanets] = useState([]);
   const [isLoading2, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetchPlanets();
+    fecthPlanets();
   }, []);
 
-  const fetchPlanets = async () => {
-    const [
-      planets1,
-      planets2,
-      planets3,
-      planets4,
-      planets5,
-      planets6,
-      planets7,
-    ] = await axios.all([
-      fetchPlanetByPage(1),
-      fetchPlanetByPage(2),
-      fetchPlanetByPage(3),
-      fetchPlanetByPage(4),
-      fetchPlanetByPage(5),
-      fetchPlanetByPage(6),
-      fetchPlanetByPage(7),
-    ]);
+  const fecthPlanets = async () => {
     setPlanets(
-      new Array().concat(
-        planets1,
-        planets2,
-        planets3,
-        planets4,
-        planets5,
-        planets6,
-        planets7
+      await axios.all(
+        planetsToFind.map((planet) => {
+          return fetchPlanetByName(planet);
+        })
       )
     );
     setIsLoading(false);
   };
 
-  const fetchPlanetByPage = async (page) => {
+  const fetchPlanetByName = async (name) => {
     const response = await axios.get(
-      `https://swapi.py4e.com/api/planets/?page=${page}`
+      `https://swapi.py4e.com/api/planets/?search=${name}`
     );
-    return response.data.results;
+    return response.data.results[0];
   };
-
   return { isLoading2, planets };
 };

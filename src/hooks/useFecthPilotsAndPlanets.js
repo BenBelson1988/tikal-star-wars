@@ -5,10 +5,11 @@ import { useFetchVehicles } from "./useFetchVehicles";
 export const useFecthPilotsAndPlanets = () => {
   const [isLoading1, setIsLoading] = useState(true);
   const [vehicles, setVehicles] = useState([]);
-  const vehiclesList = useFetchVehicles();
+  const { vehiclesLoading, vehiclesList } = useFetchVehicles();
 
   useEffect(() => {
-    if (vehiclesList.length !== 0) FetchPilots(vehiclesList);
+    if (vehiclesList.length !== 0 && !vehiclesLoading)
+      FetchPilots(vehiclesList);
   }, [vehiclesList]);
 
   const FetchPilotsPlanets = async (pilot) => {
